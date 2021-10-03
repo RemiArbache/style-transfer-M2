@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Transfer</title>
+</head>
+<body>
+    <form>
+        <label for="uploadImage">
+            Upload image 
+        </label>
+        <input type="file" name="file" id="uploadImage" accept="image/*"/>
+        <input type="submit" id="submit-button" value="Predict!" formaction="http://127.0.0.1:5000/predict" formmethod="POST" formenctype="multipart/form-data" disabled="true">
+    </form>
+    <br>
+    <img id="uploadedImage" src="" alt="Choose image"/>
+    
+    <script>
+    uploadImage.onchange = evt => {
+        const [file] = uploadImage.files
+        if (file) {
+            uploadedImage.src = URL.createObjectURL(file)
+            document.getElementById("submit-button").disabled = false
+        }
+      }
+    </script>
+
+</body>
+</html>
