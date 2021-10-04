@@ -7,25 +7,23 @@
     <title>Style Transfer</title>
 </head>
 <body>
+    <input type="file" name="content-file" id="uploadContentImage" accept="image/*"/>
+    <input type="file" name="style-file" id="uploadStyleImage" accept="image/*"/>
+    <label for="uploadContentImage">
+        Upload image 
+    </label>
+    <label for="uploadStyleImage">
+        Upload image 
+    </label>
     <form>
-        <label for="uploadImage">
-            Upload image 
-        </label>
-        <input type="file" name="file" id="uploadImage" accept="image/*"/>
-        <input type="submit" id="submit-button" value="Predict!" formaction="http://127.0.0.1:5000/predict" formmethod="POST" formenctype="multipart/form-data" disabled="true">
+        <input type="text" name="content-uri" id="contentURI" style="visibility: hidden;">
+        <input type="text" name="style-uri"  id="styleURI" style="visibility: hidden;">
+        <input type="submit" id="submit-button" value="Predict!" formaction="http://127.0.0.1:5000/predict" formmethod="POST" disabled="true">
     </form>
     <br>
-    <img id="uploadedImage" src="" alt="Choose image"/>
+    <img id="uploadedContentImage" src="" alt="Choose Content Image"/>
+    <img id="uploadedStyleImage" src="" alt="Choose Style Image"/>
     
-    <script>
-    uploadImage.onchange = evt => {
-        const [file] = uploadImage.files
-        if (file) {
-            uploadedImage.src = URL.createObjectURL(file)
-            document.getElementById("submit-button").disabled = false
-        }
-      }
-    </script>
-
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>
