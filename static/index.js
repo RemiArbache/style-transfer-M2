@@ -14,6 +14,7 @@ contentReader.onload = () =>{
     document.getElementById('contentURI').value = contentURI
     contentImageSet = true
     uploadedContentImage.src = contentURI
+    window.scrollTo(0,document.body.scrollHeight);
     togglePredictButton()
 }
 
@@ -22,6 +23,7 @@ styleReader.onload = () =>{
     document.getElementById('styleURI').value = styleURI
     styleImageSet = true
     uploadedStyleImage.src = styleURI 
+    window.scrollTo(0,document.body.scrollHeight);
     togglePredictButton()
 }
 
@@ -49,3 +51,27 @@ togglePredictButton = () => {
         document.getElementById("submit-button").disabled = true
     }
 }
+
+$(document).on('submit','#predict-form',function(e)
+        {
+            e.preventDefault();
+            $('#spinner').addClass("spinner-border")
+        
+            document.getElementById("submit-button").disabled = true
+            $.ajax({
+                type:'POST',
+                url:'/',
+                data: {
+                    contenturi: $('#contentURI').val(),
+                    styleuri: $('#styleURI').val()
+                },
+                success:function(res)
+                {
+                    $('#resultImage').attr('src',res.image_src)
+                    $('#spinner').removeClass("spinner-border")
+                    document.getElementById("submit-button").disabled = false
+                    setTimeout(() => {  window.scrollTo(0,document.body.scrollHeight); }, 200);
+                    
+                }
+            })
+        });
