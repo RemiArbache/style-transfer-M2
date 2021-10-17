@@ -12,15 +12,11 @@ def serve_pil_image(pil_img):
 
 @app.route("/",methods=['GET', 'POST'])
 def index():
-    return render_template("index.html")
-
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    """Get content- and style-images' URIs, feeds them to the model and serves the output"""
-    if request.method == 'POST':
-        contentFile = request.form['content-uri']
-        styleFile = request.form['style-uri']
+    if request.method == 'GET': 
+        return render_template("index.html")
+    else:
+        contentFile = request.form['contenturi']
+        styleFile = request.form['styleuri']
         
         outputs = transfer_style(contentFile, styleFile)
         
@@ -33,7 +29,16 @@ def predict():
         # Convert array to PIL format 
         pil_image = Image.fromarray(im_arr)
 
-        return serve_pil_image(pil_image)
+        img_io = BytesIO()
+        pil_image.save(img_io, 'JPEG', quality=70)
+        img_io.seek(0)
+        
+        output_s = img_io.read()
+        b64 = base64.b64encode(output_s)
+
+        res = 'data:image/png;base64,{0}'.format(b64.decode("utf-8"))
+        
+        return jsonify({'image_src': res})
 
 if __name__ == '__main__':
     app.run()
