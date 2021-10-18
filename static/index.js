@@ -13,6 +13,39 @@ const uploadStyleImage = document.getElementById("uploadStyleImage")
 // Flags used for predict button 
 var contentImageSet = styleImageSet = false
 
+// When the reader finishes converting the image to a data URI
+contentReader.onload = () =>{
+    // Set form input value to data URI
+    document.getElementById('contentURI').value = contentReader.result
+    
+    // Set flag
+    contentImageSet = true
+    
+    // Show preview
+    uploadedContentImage.src = contentReader.result
+    
+    // Scroll to bottom
+    window.scrollTo(0,document.body.scrollHeight);
+    
+    togglePredictButton()
+}
+
+styleReader.onload = () =>{
+    // Set form input value to data URI
+    document.getElementById('styleURI').value = styleReader.result
+    
+    // Set flag
+    styleImageSet = true
+    
+    // Show preview
+    uploadedStyleImage.src = styleReader.result 
+    
+    // Scroll to bottom
+    window.scrollTo(0,document.body.scrollHeight);
+    
+    togglePredictButton()
+}
+
 // When content image is loaded
 uploadContentImage.onchange = evt => {
     const [file] = uploadContentImage.files
@@ -29,39 +62,6 @@ uploadStyleImage.onchange = evt => {
         // Convert to data URL
         styleReader.readAsDataURL(file)
     }
-}
-
-// When the reader finishes converting the image to a data URI
-contentReader.onload = () =>{
-    // Set form input value to data URI
-    document.getElementById('contentURI').value = contentReader.result
-    
-    // Set flag
-    contentImageSet = true
-    
-    // Show preview
-    uploadedContentImage.src = contentURI
-    
-    // Scroll to bottom
-    window.scrollTo(0,document.body.scrollHeight);
-    
-    togglePredictButton()
-}
-
-styleReader.onload = () =>{
-    // Set form input value to data URI
-    document.getElementById('styleURI').value = styleReader.result
-    
-    // Set flag
-    styleImageSet = true
-    
-    // Show preview
-    uploadedStyleImage.src = styleURI 
-    
-    // Scroll to bottom
-    window.scrollTo(0,document.body.scrollHeight);
-    
-    togglePredictButton()
 }
 
 // Only allow prediction if both images are set

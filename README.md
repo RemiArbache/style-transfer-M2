@@ -7,5 +7,5 @@ Based on [this article](https://arxiv.org/abs/1705.06830) and [this TF Hub page]
 
 Launch server by running
 ```
-flask run
+python -m flask run
 ```
