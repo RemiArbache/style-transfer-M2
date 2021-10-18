@@ -11,7 +11,7 @@ import tensorflow_hub as hub
 import contextlib
 import base64
 
-
+# Code from TFHub
 hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
 hub_module = hub.load(hub_handle)
 output_image_size = 384
@@ -29,7 +29,7 @@ def transfer_style(content_image_url, style_image_url):
     return outputs
 
 def crop_center(image):
-    """Returns a cropped square image."""
+    """Returns a cropped square image"""
     
     shape = image.shape
     new_shape = min(shape[1], shape[2])
