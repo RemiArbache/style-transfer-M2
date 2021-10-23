@@ -16,9 +16,6 @@ python -m flask run
 ```
 
 ---
-[TOC]
-
----
 ### Description
 Ce projet a pour objectif la découverte du Neural Style Transfer (NST) à travers l’utilisation des modèles de d2l et de Google Brain. L'objectif est de réaliser un transfert d'une image de style à une image de contenu, et et de créer un site web d’application du modèle de Google Brain. 
 Ce readMe permet d’expliquer la méthode de NST de d2l suivant un principe d’optimisation pour ensuite la comparer avec la méthode de Google Brain qui permet l’obtention en une boucle de l’image synthétisée sans entraînement préalable sur les images données en entrée.
@@ -50,7 +47,7 @@ L’algorithme utilise un modèle pré-entraîné d’extraction hiérarchique d
 
 Schéma exemple avec un CNN d’extraction de caractéristiques à 3 couches :
 
-![](images\CNN_example.png)
+![](images/CNN_example.png)
 
 Les fonctions de perte sont calculées à travers une *forward propagation*, puis les paramètres du modèle (l’image synthétisée en sortie) sont mis jour à travers une *back propagation*. 
 
@@ -84,13 +81,13 @@ En explorant cette question, un fait très surprenant a été trouvé sur le rô
 
 Le modèle NST de Google Brain est donc la combinaison de modèles dont la méthode est d’apprendre la caractérisation de l’image de style aux paramètres de style directement. Dans le cas du modèle de Google Brain, pour faire le NST d’une image de style vers une image de contenu, deux réseaux sont utilisés : le *style transfer* <img src="https://render.githubusercontent.com/render/math?math=T(.%2C%5Cvec%20S)"> et le *style prediction* <img src="https://render.githubusercontent.com/render/math?math=P(.)">. 
 
-![](images\NST_example.png)
+![](images/NST_example.png)
 
-**Réseau <img src="https://render.githubusercontent.com/render/math?math=T">: **  <img src="https://render.githubusercontent.com/render/math?math=T(.%2C%5Cvec%20S)"> peut ainsi faire le transfert de style en une seule propagation avant de n’importe quelle image de style à partir du moment qu’on connaît le vecteur <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S%20%3D%20(%5Cgamma_s%2C%20%5Cbeta_s)">, calculé par le réseau <img src="https://render.githubusercontent.com/render/math?math=P(.)">.
+**Réseau <img src="https://render.githubusercontent.com/render/math?math=T">:**  <img src="https://render.githubusercontent.com/render/math?math=T(.%2C%5Cvec%20S)"> peut ainsi faire le transfert de style en une seule propagation avant de n’importe quelle image de style à partir du moment qu’on connaît le vecteur <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S%20%3D%20(%5Cgamma_s%2C%20%5Cbeta_s)">, calculé par le réseau <img src="https://render.githubusercontent.com/render/math?math=P(.)">.
 
 <img src="https://render.githubusercontent.com/render/math?math=T(.%2C%5Cvec%20S)"> utilise la normalisation pour transformer une couche d'activation <img src="https://render.githubusercontent.com/render/math?math=z"> en une activation normalisée <img src="https://render.githubusercontent.com/render/math?math=%5Ctilde%20z"> spécifique à un style <img src="https://render.githubusercontent.com/render/math?math=s"> de sorte que <img src="https://render.githubusercontent.com/render/math?math=%5Ctilde%20z%20%3D%20%5Cgamma_s%5Cleft(%5Cfrac%7Bz%20-%20%5Cmu%7D%7B%5Csigma%7D%5Cright)%20%2B%20%5Cbeta_s">, où <img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bz%20-%20%5Cmu%7D%7B%5Csigma%7D"> représente la couche <img src="https://render.githubusercontent.com/render/math?math=z"> normalisée, et <img src="https://render.githubusercontent.com/render/math?math=%5Ctilde%20z"> est la normalisation d'instance conditionnelle. Ils effectuent une mise à l'échelle et un déplacement à l'aide de vecteurs de paramètres dépendants du style.
 
-**Réseau <img src="https://render.githubusercontent.com/render/math?math=P">: ** Le réseau <img src="https://render.githubusercontent.com/render/math?math=P(.)"> fait la prédiction du vecteur <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S"> à partir de l’image de style donnée en entrée. Il est basé sur le modèle pré-entraîné Inception-v3 : selon l’article, il calcule la moyenne à travers tous les channels d’activation de la couche Mixed-6e et retourne un feature vector sur lequel il applique 2 couches fully-connected pour prédire <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S">.
+**Réseau <img src="https://render.githubusercontent.com/render/math?math=P">:** Le réseau <img src="https://render.githubusercontent.com/render/math?math=P(.)"> fait la prédiction du vecteur <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S"> à partir de l’image de style donnée en entrée. Il est basé sur le modèle pré-entraîné Inception-v3 : selon l’article, il calcule la moyenne à travers tous les channels d’activation de la couche Mixed-6e et retourne un feature vector sur lequel il applique 2 couches fully-connected pour prédire <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S">.
 
 #### Conclusion et observations
 
