@@ -31,15 +31,15 @@ Notre étude s'est tout d’abord portée sur le modèle NST de d2l se basant su
 
 #### Données en entrée
 
-// TODO
+Deux images (.png, .jpg)
 
 #### Pré-traitements
 
-// TODO
+Redimensionnement des images à la même taille : on garde le ratio de l'image de contenu en diminuant la taille si besoin afin de réduire la durée de l'entraînement.
 
 #### Fonctionnement du modèle
 
-De manière générale, le modèle tire parti des représentations en couches d’un réseau neuronal convolutif (CNN) afin d’appliquer automatiquement le style d’une image à une autre image. Pour cela, deux images sont utilisées : l’image de contenu et l’image de style. Un réseau neuronal est ensuite utilisé pour modifier l’image de contenu pour la rendre proche en style de l’image de style. Il s’agit donc de l’optimisation l’image de contenu avec l’image de style.
+De manière générale, le modèle tire parti des représentations en couches d’un réseau neuronal convolutif (CNN) afin d’appliquer automatiquement le style d’une image à une autre image. Pour cela, deux images sont utilisées : l’image de contenu et l’image de style. Un réseau neuronal est ensuite utilisé pour modifier l’image de contenu pour la rendre proche en style de l’image de style. Il s’agit donc d'optimiser l’image de contenu avec l’image de style.
 
 La méthode présentée par d2l considère l’image synthétisée (en sortie) comme les paramètres d’un modèle, initialisé avec l’image de contenu. 
 
