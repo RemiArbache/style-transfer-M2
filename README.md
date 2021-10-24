@@ -77,7 +77,7 @@ Pour des explications plus extensives sur le code Python du modèle, se référe
 
 #### Conclusion et observations
 
-La mise à jour itérative d'une image pour synthétiser une texture visuelle ou un transfert de style artistique à une image est une procédure d'optimisation lente. Elle exclut aussi toute possibilité d'apprentissage d'une représentation d'un style de peinture.
+La mise à jour itérative d'une image pour synthétiser une texture visuelle ou un transfert de style artistique à une image est une procédure d'optimisation lente. Elle exclut aussi toute possibilité d'apprentissage d'une représentation d'un style de peinture. De plus, la modification des (hyper)paramètres n'apportent pas beaucoup de changements sur l'image synthétisée à la fin de son optimisation.
 
 ### Modèle de prédiction avec Google Brain
 
