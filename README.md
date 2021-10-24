@@ -36,6 +36,7 @@ Deux images (.png, .jpg)
 #### Pré-traitements
 
 Redimensionnement des images à la même taille : on garde le ratio de l'image de contenu en diminuant la taille si besoin afin de réduire la durée de l'entraînement.
+Toute valeur de pixel inférieure à 0 ou supérieure à 1 est remplacée respectivement par 0 ou 1 pour standardiser chacun des trois canaux RVB d’une image donnée et transformer les résultats au format d’entrée du CNN.
 
 #### Fonctionnement du modèle
 
