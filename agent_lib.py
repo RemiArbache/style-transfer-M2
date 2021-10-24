@@ -14,7 +14,7 @@ import base64
 # Code from TFHub
 hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
 hub_module = hub.load(hub_handle)
-output_image_size = 384
+output_image_size = 500
 style_img_size = (256, 256)
 
 def transfer_style(content_image_url, style_image_url):
