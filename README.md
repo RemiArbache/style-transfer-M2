@@ -66,14 +66,8 @@ Pour des explications plus extensives sur le code Python du modèle, se référe
 
 | *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![synthetized_rainier](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthetized_rainier.jpg) |
-| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthetized_paysage.jpg) |
-
-
-
-
-
-
+| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_rainier.jpg) |
+| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_paysage.jpg) |
 
 #### Conclusion et observations
 
@@ -102,6 +96,13 @@ Le modèle NST de Google Brain est donc la combinaison de modèles dont la méth
 <img src="https://render.githubusercontent.com/render/math?math=T(.%2C%5Cvec%20S)"> utilise la normalisation pour transformer une couche d'activation <img src="https://render.githubusercontent.com/render/math?math=z"> en une activation normalisée <img src="https://render.githubusercontent.com/render/math?math=%5Ctilde%20z"> spécifique à un style <img src="https://render.githubusercontent.com/render/math?math=s"> de sorte que <img src="https://render.githubusercontent.com/render/math?math=%5Ctilde%20z%20%3D%20%5Cgamma_s%5Cleft(%5Cfrac%7Bz%20-%20%5Cmu%7D%7B%5Csigma%7D%5Cright)%20%2B%20%5Cbeta_s">, où <img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bz%20-%20%5Cmu%7D%7B%5Csigma%7D"> représente la couche <img src="https://render.githubusercontent.com/render/math?math=z"> normalisée, et <img src="https://render.githubusercontent.com/render/math?math=%5Ctilde%20z"> est la normalisation d'instance conditionnelle. Ils effectuent une mise à l'échelle et un déplacement à l'aide de vecteurs de paramètres dépendants du style.
 
 **Réseau <img src="https://render.githubusercontent.com/render/math?math=P">:** Le réseau <img src="https://render.githubusercontent.com/render/math?math=P(.)"> fait la prédiction du vecteur <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S"> à partir de l’image de style donnée en entrée. Il est basé sur le modèle pré-entraîné Inception-v3 : selon l’article, il calcule la moyenne à travers tous les channels d’activation de la couche Mixed-6e et retourne un feature vector sur lequel il applique 2 couches fully-connected pour prédire <img src="https://render.githubusercontent.com/render/math?math=%5Cvec%20S">.
+
+#### Résultats
+
+| *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_rainier_google.jpg) |
+| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_paysage_google.jpg) |
 
 #### Conclusion et observations
 
