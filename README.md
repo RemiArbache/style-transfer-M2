@@ -62,6 +62,19 @@ A la fin de l’entraînement, les paramètres du modèle sont récupérés pour
 
 Pour des explications plus extensives sur le code Python du modèle, se référer au notebook disponible sur le repository résumant en français les explications de [d2l.ai](https://d2l.ai/chapter_computer-vision/neural-style.html). Ce notebook met en application la méthode décrite.
 
+#### Résultats
+
+| *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\rainier.jpg) | ![style](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\style.jpg) | ![synthetized_rainier](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\synthetized_rainier.jpg) |
+| <img src="D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\nuit.jpg) | ![](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\synthetized_paysage.jpg) |
+
+
+
+
+
+
+
 #### Conclusion et observations
 
 La mise à jour itérative d'une image pour synthétiser une texture visuelle ou un transfert un style artistique à une image. Cette procédure d'optimisation est lente et exclut toute possibilité d'apprentissage d'une représentation d'un style de peinture.
