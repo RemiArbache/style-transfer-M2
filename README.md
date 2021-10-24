@@ -66,8 +66,8 @@ Pour des explications plus extensives sur le code Python du modèle, se référe
 
 | *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\rainier.jpg) | ![style](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\style.jpg) | ![synthetized_rainier](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\synthetized_rainier.jpg) |
-| <img src="D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\nuit.jpg) | ![](D:\Documents\Cours\2021_2022\IA\style-transfer-M2\images\synthetized_paysage.jpg) |
+| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![synthetized_rainier](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthetized_rainier.jpg) |
+| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthetized_paysage.jpg) |
 
 
 
