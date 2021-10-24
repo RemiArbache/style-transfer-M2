@@ -31,15 +31,16 @@ Notre étude s'est tout d’abord portée sur le modèle NST de d2l se basant su
 
 #### Données en entrée
 
-// TODO
+Deux images (.png, .jpg)
 
 #### Pré-traitements
 
-// TODO
+Redimensionnement des images à la même taille : on garde le ratio de l'image de contenu en diminuant la taille si besoin afin de réduire la durée de l'entraînement.
+Toute valeur de pixel inférieure à 0 ou supérieure à 1 est remplacée respectivement par 0 ou 1 pour standardiser chacun des trois canaux RVB d’une image donnée et transformer les résultats au format d’entrée du CNN.
 
 #### Fonctionnement du modèle
 
-De manière générale, le modèle tire parti des représentations en couches d’un réseau neuronal convolutif (CNN) afin d’appliquer automatiquement le style d’une image à une autre image. Pour cela, deux images sont utilisées : l’image de contenu et l’image de style. Un réseau neuronal est ensuite utilisé pour modifier l’image de contenu pour la rendre proche en style de l’image de style. Il s’agit donc de l’optimisation l’image de contenu avec l’image de style.
+De manière générale, le modèle tire parti des représentations en couches d’un réseau neuronal convolutif (CNN) afin d’appliquer automatiquement le style d’une image à une autre image. Pour cela, deux images sont utilisées : l’image de contenu et l’image de style. Un réseau neuronal est ensuite utilisé pour modifier l’image de contenu pour la rendre proche en style de l’image de style. Il s’agit donc d'optimiser l’image de contenu avec l’image de style.
 
 La méthode présentée par d2l considère l’image synthétisée (en sortie) comme les paramètres d’un modèle, initialisé avec l’image de contenu. 
 
@@ -61,9 +62,22 @@ A la fin de l’entraînement, les paramètres du modèle sont récupérés pour
 
 Pour des explications plus extensives sur le code Python du modèle, se référer au notebook disponible sur le repository résumant en français les explications de [d2l.ai](https://d2l.ai/chapter_computer-vision/neural-style.html). Ce notebook met en application la méthode décrite.
 
+#### Résultats
+
+| *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![synthetized_rainier](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthetized_rainier.jpg) |
+| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthetized_paysage.jpg) |
+
+
+
+
+
+
+
 #### Conclusion et observations
 
-La mise à jour itérative d'une image pour synthétiser une texture visuelle ou un transfert un style artistique à une image. Cette procédure d'optimisation est lente et exclut toute possibilité d'apprentissage d'une représentation d'un style de peinture.
+La mise à jour itérative d'une image pour synthétiser une texture visuelle ou un transfert de style artistique à une image est une procédure d'optimisation lente. Elle exclut aussi toute possibilité d'apprentissage d'une représentation d'un style de peinture. De plus, la modification des (hyper)paramètres n'apportent pas beaucoup de changements sur l'image synthétisée à la fin de son optimisation.
 
 ### Modèle de prédiction avec Google Brain
 
@@ -94,6 +108,8 @@ Le modèle NST de Google Brain est donc la combinaison de modèles dont la méth
 ### Site web d’application du modèle NST de Google Brain
 
 ### Ouverture
+Actuellement, les méthodes et modèles présentés réalisent le transfert de style d'une image à une autre image, typiquement d'une peinture ou texture à une photographie. Une autre application du NST serait l'application d'un style calligraphique à du texte. Ensuite, une possibilité serait l'application d'un style visuel (peinture/texture) en temps réel à une vidéo. 
+
 ### Sources
 - Article Google Brain, *Exploring the structure of a real-time, arbitrary neural artistic stylization network*  : https://arxiv.org/pdf/1705.06830.pdf 
 - Tutoriel de NST d2l : https://d2l.ai/chapter_computer-vision/neural-style.html 
