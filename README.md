@@ -110,6 +110,8 @@ Le modèle NST de Google Brain est donc la combinaison de modèles dont la méth
 ### Ouverture
 Actuellement, les méthodes et modèles présentés réalisent le transfert de style d'une image à une autre image, typiquement d'une peinture ou texture à une photographie. Une autre application du NST serait l'application d'un style calligraphique à du texte. Ensuite, une possibilité serait l'application d'un style visuel (peinture/texture) en temps réel à une vidéo. 
 
+
+---
 ### Sources
 - Article Google Brain, *Exploring the structure of a real-time, arbitrary neural artistic stylization network*  : https://arxiv.org/pdf/1705.06830.pdf 
 - Tutoriel de NST d2l : https://d2l.ai/chapter_computer-vision/neural-style.html 
