@@ -76,7 +76,11 @@ La mise à jour itérative d'une image pour synthétiser une texture visuelle ou
 ### Modèle de prédiction avec Google Brain
 
 #### Données en entrée
+Deux images, tous formats.
+
 #### Pré-traitements
+
+
 #### Fonctionnement du modèle
 
 Les travaux sur le NST ont tout d’abord porté sur une méthode d'optimisation par mise à jour itérative de l’image synthétisée tel que pour la méthode de présentée ci-dessus.
@@ -106,9 +110,35 @@ Le modèle NST de Google Brain est donc la combinaison de modèles dont la méth
 
 #### Conclusion et observations
 
+Cette méthode est très avantageuse, que ce soit par la qualité des résultats produits, par la vitesse de rendu, ou par l'étendue des styles compatibles. 
+
+Elle présente néanmoins quelques défauts dans sa version actuelle : l'image rendue est carrée et de taille fixe, ce qui empêche le maintien de la résolution des images initiales. Cette contrainte force l'utilisateur à choisir des zones d'intérêt sur les images de contenu et de style.
+
+
+
 ### Site web d’application du modèle NST de Google Brain
 
-### Ouverture
+Nous avons mis en place une plateforme d'essai du modèle de Google Brain en utilisant le code disponible sur TF Hub et en l'intégrant à un serveur Python en utilisant Flask. Le serveur dispose d'une interface web (HTML/CSS/JS) qui permet à l'utilisateur de choisir une image de style et une image de contenu et d'obtenir le résultat du transfert de style. 
+
+L'interface à vide se présente comme tel : 
+
+![](images/preview_empty.png)
+
+Cliquer sur les boutons *Browse* pour choisir une image de contenu et de style : 
+
+![](images/preview_filled.png)
+
+Des sliders apparaissent sous les images pour permettre le positionnement et le zoom sur une partie de l'image.
+
+
+
+Cliquer sur le bouton *Predict* pour obtenir un résultat : 
+
+![](images/preview_result.png)
+
+
+
+###  Ouverture
 Actuellement, les méthodes et modèles présentés réalisent le transfert de style d'une image à une autre image, typiquement d'une peinture ou texture à une photographie. Une autre application du NST serait l'application d'un style calligraphique à du texte. Ensuite, une possibilité serait l'application d'un style visuel (peinture/texture) en temps réel à une vidéo. 
 
 
