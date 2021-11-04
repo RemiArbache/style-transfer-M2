@@ -19,7 +19,8 @@
         </a>
     </nav>
     <div class="container-fluid mt-5 mb-3">
-
+        <canvas id="contentCanvas" hidden></canvas>
+        <canvas id="styleCanvas" hidden></canvas>
         <div class="container">
             
             <div class="row">
@@ -28,18 +29,14 @@
                     <label for="formFileLg" class="form-label">Upload Content Image</label>
                     <input class="form-control form-control-lg" name="content-file" id="uploadContentImage" type="file" accept="image/*"/>
                     <div class="container-sm mt-3 mb-3">
-                        <div id="croppieContentDiv">
-                            <img id="uploadedContentImage" src="" class="img-thumbnail"/>
-                        </div>
+                        <img id="uploadedContentImage" src="" class="img-thumbnail"/>
                     </div>
                 </div>
                 <div class="col-4 mt-3 mb-3">
                     <label for="formFileLg" class="form-label">Upload Style Image</label>
                     <input class="form-control form-control-lg" name="style-file" id="uploadStyleImage" type="file" accept="image/*"/>
                     <div class="container-sm mt-3 mb-3">
-                        <div id="croppieStyleDiv">
-                            <img id="uploadedStyleImage" src="" class="img-thumbnail"/>
-                        </div>
+                        <img id="uploadedStyleImage" src="" class="img-thumbnail"/>
                     </div>
                 </div>
                 <div class="col"></div>

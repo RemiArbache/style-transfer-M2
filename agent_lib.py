@@ -14,7 +14,7 @@ import base64
 # Code from TFHub
 hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2'
 hub_module = hub.load(hub_handle)
-output_image_size = 500
+output_image_size = 750
 style_img_size = (256, 256)
 
 def transfer_style(content_image_url, style_image_url):
@@ -28,16 +28,6 @@ def transfer_style(content_image_url, style_image_url):
     
     return outputs
 
-def crop_center(image):
-    """Returns a cropped square image"""
-    
-    shape = image.shape
-    new_shape = min(shape[1], shape[2])
-    offset_y = max(shape[1] - shape[2], 0) // 2
-    offset_x = max(shape[2] - shape[1], 0) // 2
-    image = tf.image.crop_to_bounding_box(image, offset_y, offset_x, new_shape, new_shape)
-    
-    return image
 
 @functools.lru_cache(maxsize=None)
 def load_image(image_url, image_size=(256, 256), preserve_aspect_ratio=True):
@@ -50,7 +40,8 @@ def load_image(image_url, image_size=(256, 256), preserve_aspect_ratio=True):
         img = tf.io.decode_image(
             tf.io.read_file(image_path),
             channels=3, dtype=tf.float32)[tf.newaxis, ...]
-        img = crop_center(img)
+        
+        # Resize image to image_size.
         img = tf.image.resize(img, image_size, preserve_aspect_ratio=True)
 
     return img

@@ -64,10 +64,10 @@ Pour des explications plus extensives sur le code Python du modèle, se référe
 
 #### Résultats
 
-| *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_rainier.jpg) |
-| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_paysage.jpg) |
+| *Contenu*                                                    | *Style*                    | *Résultat*                          |
+| ------------------------------------------------------------ | -------------------------- | ----------------------------------- |
+| ![](images/rainier.jpg)                                      | ![style](images/style.jpg) | ![](images/synthesized_rainier.jpg) |
+| <img src="images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](images/nuit.jpg)       | ![](images/synthesized_paysage.jpg) |
 
 #### Conclusion et observations
 
@@ -103,18 +103,16 @@ Le modèle NST de Google Brain est donc la combinaison de modèles dont la méth
 
 #### Résultats
 
-| *Contenu*                                                    | *Style*                                                      | *Résultat*                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/rainier.jpg) | ![style](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/style.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_rainier_google.jpg) |
-| <img src="https://github.com/RemiArbache/style-transfer-M2/raw/main/images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/nuit.jpg) | ![](https://github.com/RemiArbache/style-transfer-M2/raw/main/images/synthesized_paysage_google.jpg) |
+| *Contenu*                                                    | *Style*                    | *Résultat*                                 |
+| ------------------------------------------------------------ | -------------------------- | ------------------------------------------ |
+| ![](images/rainier.jpg)                                      | ![style](images/style.jpg) | ![](images/synthesized_rainier_google.jpg) |
+| <img src="images/paysage.jpg" alt="paysage" style="zoom:75%;" /> | ![](images/nuit.jpg)       | ![](images/synthesized_paysage_google.jpg) |
 
 #### Conclusion et observations
 
 Cette méthode est très avantageuse, que ce soit par la qualité des résultats produits, par la vitesse de rendu, ou par l'étendue des styles compatibles. 
 
-Elle présente néanmoins quelques défauts dans sa version actuelle : l'image rendue est carrée et de taille fixe, ce qui empêche le maintien de la résolution des images initiales. Cette contrainte force l'utilisateur à choisir des zones d'intérêt sur les images de contenu et de style.
-
-
+Des améliorations d'ordre pratique pourraient être faites au niveau de l'interface utilisateur, comme le choix de la taille de l'image de sortie.
 
 ### Site web d’application du modèle NST de Google Brain
 
@@ -128,7 +126,7 @@ Cliquer sur les boutons *Browse* pour choisir une image de contenu et de style :
 
 ![](images/preview_filled.png)
 
-Des sliders apparaissent sous les images pour permettre le positionnement et le zoom sur une partie de l'image.
+Une miniature de prévisualisation apparaît pour chaque image.
 
 
 
