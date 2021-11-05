@@ -10,10 +10,12 @@ Basé sur [cet article](https://arxiv.org/abs/1705.06830) et [cette page TF Hub]
 
 ---
 
-Lancement du serveur :
+Lancement du serveur local (meilleures performances) :
 ```
 python -m flask run
 ```
+
+Version disponible [**en ligne**](https://ai-style-transfer.herokuapp.com/) hebergée par Heroku.
 
 ---
 ### Description
@@ -80,8 +82,10 @@ Deux images, tous formats.
 
 #### Pré-traitements
 
+Les images entrées par l'utilisateur sont d'abord réduites en taille pour réduire le temps de calcul (et le temps d'envoi pour la version en ligne). Un URI en base 64 est crée pour chaque image et envoyé au serveur avant d'être passé à la fonction de prédiction en elle-même. Enfin, unee fois chargées sous forme matricielle, la valeur de chaque pixel est normalisée.
 
-#### Fonctionnement du modèle
+
+#### . Fonctionnement du modèle
 
 Les travaux sur le NST ont tout d’abord porté sur une méthode d'optimisation par mise à jour itérative de l’image synthétisée tel que pour la méthode de présentée ci-dessus.
 
@@ -116,7 +120,9 @@ Des améliorations d'ordre pratique pourraient être faites au niveau de l'inter
 
 ### Site web d’application du modèle NST de Google Brain
 
-Nous avons mis en place une plateforme d'essai du modèle de Google Brain en utilisant le code disponible sur TF Hub et en l'intégrant à un serveur Python en utilisant Flask. Le serveur dispose d'une interface web (HTML/CSS/JS) qui permet à l'utilisateur de choisir une image de style et une image de contenu et d'obtenir le résultat du transfert de style. 
+Nous avons mis en place une plateforme d'essai du modèle de Google Brain en utilisant le code disponible sur TF Hub et en l'intégrant à un serveur Python en utilisant Flask. Le serveur dispose d'une interface web (HTML/CSS/JS) qui permet à l'utilisateur de choisir une image de style et une image de contenu et d'obtenir le résultat du transfert de style.
+
+La version déployée en ligne peut présenter des performances réduites car Heroku ne supporte pas `tensorflow-gpu` et utilise donc `tensorflow-cpu`.
 
 L'interface à vide se présente comme tel : 
 
