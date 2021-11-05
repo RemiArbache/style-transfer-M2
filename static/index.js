@@ -4,6 +4,9 @@ const styleReader = new FileReader()
 // Output image size
 const IMG_SIZE = 400
 
+// Result image
+const resultImage = document.getElementById("resultImage")
+
 // Content Canvas
 const contentCanvas = document.getElementById("contentCanvas")
 const contentCtx = contentCanvas.getContext("2d")
@@ -26,6 +29,11 @@ var contentURI, styleURI
 // Flags used for predict button 
 var contentImageSet = styleImageSet = false
 
+// Toggle predict button on page refresh
+window.onload = () => {
+    togglePredictButton()
+}
+
 // When the reader finishes converting the image to a data URI
 styleReader.onload = () =>{
     // Draw image on canvas
@@ -42,9 +50,6 @@ styleReader.onload = () =>{
 
     // Show preview
     uploadedStyleImage.src = styleReader.result
-
-    // Scroll to bottom
-    window.scrollTo(0,document.body.scrollHeight)
     
     togglePredictButton()
 }
@@ -67,9 +72,6 @@ contentReader.onload = () =>{
     // Show preview
     uploadedContentImage.src = contentReader.result
 
-    // Scroll to bottom
-    window.scrollTo(0, document.body.scrollHeight)
-    
     togglePredictButton()
 }
 
@@ -89,6 +91,12 @@ uploadStyleImage.onchange = () => {
         // Convert to data URL
         styleReader.readAsDataURL(file)
     }
+}
+
+// When result image is loaded
+resultImage.onload = () => {
+    // Scroll to bottom
+    window.scrollTo(0, document.body.scrollHeight)
 }
 
 // Only allow prediction if both images are set
@@ -126,9 +134,6 @@ $(document).on('submit', '#predict-form', function(e){
             // Set submit button to ready and enabled
             $('#spinner').removeClass("spinner-border")
             document.getElementById("submit-button").disabled = false
-
-            // After image has finished loading, scroll to bottom
-            setTimeout(() => {  window.scrollTo(0,document.body.scrollHeight) }, 100)
         }
     })
 })
