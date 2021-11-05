@@ -3,5 +3,5 @@ gunicorn
 Pillow
 matplotlib
 numpy
-tensorflow
+tensorflow-cpu
 tensorflow_hub
