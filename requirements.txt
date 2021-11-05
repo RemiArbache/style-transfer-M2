@@ -1,12 +1,9 @@
 flask
 gunicorn
-io
 PIL
 matplotlib
-os
 functools
 numpy
 tensorflow
 tensorflow_hub
 contextlib
-base64
