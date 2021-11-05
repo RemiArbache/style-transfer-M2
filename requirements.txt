@@ -5,4 +5,3 @@ matplotlib
 numpy
 tensorflow
 tensorflow_hub
-contextlib
