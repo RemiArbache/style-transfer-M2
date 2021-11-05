@@ -2,7 +2,6 @@ flask
 gunicorn
 Pillow
 matplotlib
-functools
 numpy
 tensorflow
 tensorflow_hub
