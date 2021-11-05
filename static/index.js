@@ -34,14 +34,27 @@ window.onload = () => {
     togglePredictButton()
 }
 
+// Resize and canvas - keep aspect ratio
+function resizeImage(img, canvas){
+    if (img.width > img.height){
+        canvas.width = IMG_SIZE
+        canvas.height = IMG_SIZE * img.height / img.width
+    } else {
+        canvas.height = IMG_SIZE
+        canvas.width = IMG_SIZE * img.width / img.height
+    }
+}
+
 // When the reader finishes converting the image to a data URI
 styleReader.onload = () =>{
     // Draw image on canvas
     var img = new Image()
     img.onload = () =>{
-        styleCanvas.width = img.width
-        styleCanvas.height = img.height
-        styleCtx.drawImage(img,0,0,img.width,img.height)
+        // Resize image keep aspect ratio
+        resizeImage(img, styleCanvas)
+
+        // Draw image on canvas
+        styleCtx.drawImage(img,0,0,styleCanvas.width,styleCanvas.height)
     }
     img.src = styleReader.result
 
@@ -60,9 +73,11 @@ contentReader.onload = () =>{
     var img = new Image()
 
     img.onload = () =>{
-        contentCanvas.width = img.width
-        contentCanvas.height = img.height
-        contentCtx.drawImage(img,0,0,img.width,img.height)
+        // Resize image keep aspect ratio
+        resizeImage(img, contentCanvas)
+
+        // Draw image on canvas
+        contentCtx.drawImage(img,0,0,contentCanvas.width,contentCanvas.height)
     }
     img.src = contentReader.result
 
