@@ -1,6 +1,6 @@
 flask
 gunicorn
-PIL
+Pillow
 matplotlib
 functools
 numpy
